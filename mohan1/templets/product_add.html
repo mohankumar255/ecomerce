@@ -1,0 +1,19 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+  <head>
+          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+  </head>
+<body>
+
+<form method="post" action="/product_add">
+
+    {%csrf_token%}
+    <center> {{form.as_p}}
+
+       <button class="btn btn-outline-success my-2 my-sm-0">Product Add</button></center>
+
+</form>
+</body>
+</html>

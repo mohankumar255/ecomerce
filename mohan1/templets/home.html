@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        #logo{
+          height:50px;
+          left:10px;
+          top:20px;
+          position:absolute;
+
+  border-radius: 50%;
+  background-color:blue;
+
+          }
+        #centere{
+        position:absolute;
+        top:200px;
+        left:500px;
+        }
+    </style>
+    <meta charset="UTF-8">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Title</title>
+</head>
+<body>
+<img id="logo" class="nav-link" src="/media/pics/M.jpg" alt="logo">
+{%for i in messages%}
+<h2>{{i}}</h2>
+{%endfor%}
+<list id="centere">
+    <!--<ul><a class='btn btn-primary' href="register">register</a></ul>
+
+    <ul><a class='btn btn-primary' href="login">login</a></ul><-->
+
+    <ul><a class='btn btn-primary' href="show">Shopping Here</a></ul>
+</list>
+</body>
+</html>

@@ -1,0 +1,188 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+  <head>
+      <style>
+      a{
+      color:white;
+      }
+          .bg{
+              background-color: blueviolet!important;
+
+          }
+          #body{
+          background-color:#87CEEB;
+          }
+          #searchbox{
+          background-color:blue;
+
+          }
+          #header{
+          height:60px;
+                    background-color:green;
+
+
+          }
+          #values{
+          color:white;
+          position:absolute;
+          top:10px;
+          right:60px;
+
+          }
+          #logout{
+          color:white;
+          }
+          #messages{
+          color:white;
+          position:absolute;
+          top:20px;
+          left:350px;
+
+          }
+          .my-row{
+          height:50px;
+          }
+        #add_product{
+           color:white;
+           background-color:white;
+          position:absolute;
+          top:20px;
+          left:450px;
+        }
+
+        #count_all{
+           color:white;
+           background-color:white;
+          position:absolute;
+          top:20px;
+          left:650px;
+
+
+        }
+
+          #logo{
+          height:60px;
+          left:10px;
+          top:60px;
+          position:absolute;
+
+  border-radius: 50%;
+  background-color:blue;
+
+          }
+      </style>
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body id="body">
+<img id="logo" class="nav-link" src="media/pics/M.jpg" alt="cart">
+
+  {%if user.is_authenticated%}
+<header id="header">
+    <a class="btn btn-outline-danger id="logout" href="/logout">LogOut</a>
+
+</header>
+
+<section>
+
+<button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="add_product">
+ <a href="/product_add">Add_Product</a></button>
+   <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="count_all">  <a href="/count_all">Count All</a></button>
+
+    <br>
+  <br>
+  {%for i in messages%}
+  <h5 id="messages">  {{i}}</h5>
+  {%endfor%}
+<div class="row my-row">
+
+    <div class="col-md-2">
+        <!-- categeries-->
+
+        <div class="list-group mt-3">
+
+</div>
+  </div>
+  <center>
+      <div id="values"><h7>TODAY  TOTAL ORDERS {{number_of_orders}}</h7>
+          <br>
+  <h7>TODAY  TOTAL AMOUNT ₹ {{total_amount}}</h7></div></center>
+
+<div class="col-md-10">
+    <div class="card-columns">
+        <div class="row my-row">
+        <div class="col-md-3">
+
+{% for i in form %}
+
+{%if i.completed%}
+<div class="card" style="width: 20rem; background-color:blue;color:white;">
+  <div class="card-body">
+     <h4>Type: {{i.types1}}</h4>
+           <h4 class="card-name">Product_name: {{i.item_name}}</h4>
+      <h4 class="card-name">Item Price: {{i.rate}} Rs Only</h4>
+            <h4 class="card-name">Quantity: {{i.quantity}}</h4>
+
+      <h4 class="card-name">Total Amount: {{i.total}} Rs Only</h4>
+
+    <p class="card-text">{{ i.description }}</p>
+      <h5 class="card-name">order_date:{{i.date}}</h5>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                <a href="Delivered/{{ i.id }}">Delivered</a></button>
+
+  </div>
+
+    </div>
+{%else%}
+<div class="card" style="width: 20rem;background-color:red;color:white;">
+  <div class="card-body">
+     <h4 class="card-name">type: {{i.types1}}</h4>
+           <h4 class="card-name">Product_name: {{i.item_name}}</h4>
+      <h4 class="card-name">Item Price: {{i.rate}} Rs Only</h4>
+            <h4 class="card-name">quantity: {{i.quantity}}</h4>
+
+      <h4 class="card-name">Total Amount: {{i.total}} Rs Only</h4>
+
+    <p class="card-text">{{ i.description }}</p>
+                         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+ <a href="Pending/{{ i.id }}">Pending</a></button>
+
+  </div>
+</div>
+            {%endif%}
+          {% endfor %}
+
+
+        </div>
+        </div>
+    </div>
+</div>
+
+</section>
+
+    <!-- Optional JavaScript -->
+    <!--</section>
+ jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+ {%else%}
+Login Here
+   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+ <a href="'/login">Pending</a></button>
+{%endif%}
+
+
+
+  </body>
+</html>

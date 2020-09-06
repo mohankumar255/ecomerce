@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a{
+        color:white;
+        }
+        #name{
+        color:green;
+
+        position:absolute;
+        top:50px;
+        left:400px;
+        }
+        #product_details{
+        position:absolute;
+        top:100px;
+        left:500px;
+        }
+        #end{
+        position:absolute;
+        top:350px;
+        left:500px;
+        }
+
+          #logo{
+          height:60px;
+          left:10px;
+          top:60px;
+          position:absolute;
+
+  border-radius: 50%;
+  background-color:blue;
+
+          }
+
+    </style>
+</head>
+<body>
+<img id="logo" class="nav-link" src="/media/pics/M.jpg" alt="cart">
+<center>
+</center>
+<center>
+    <center><h3 id="name">{{name}},your order was saved,we will call to you soon </h3></center>
+    <div id="product_details">
+Your product id:<input type="text" class="input" id="{{item_id}}" value="{{item_id}}" readonly><br>
+<br>
+Each Product Price:<input type="text" class="input" id="{{rate1}}" value="{{rate1}}" readonly><br>
+<br>
+Number of Items<input type="text" class="input" id="{{quantity}}" value="{{quantity}}" readonly><br>
+<br>
+        Total price :<input type="number" class="input" id="{{total}}" value="{{total}}" readonly><br>
+
+<button class="btn btn-primary" type="submit"><a href="/delete/{{id}}">Cancel Order</a></button>
+    <button class="btn btn-primary" type="submit"><a href="show">Go To Home</a></button>
+
+</center>
+    <center><h3 id="end">Thank You Visit again</h3></center>
+</div>
+</body>
+</html>

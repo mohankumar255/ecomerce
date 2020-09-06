@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+
+          #logo{
+          height:60px;
+          left:10px;
+          top:60px;
+          position:absolute;
+
+  border-radius: 50%;
+  background-color:blue;
+
+          }
+    </style>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{%include 'novbar.html'%}
+<img id="logo" class="nav-link" src="media/pics/M.jpg" alt="cart">
+</div>
+  </div>
+  <center><h3>Total Delivery orders :{{number_of_delivery_orders}}</h3>
+
+  <h3>Total pending orders :{{number_of_pending_orders}}</h3>
+</center>
+
+<div class="col-md-10">
+    <div class="card-columns">
+        <div class="row-md-5">
+        <div class="col-md-3">
+
+{% for i in delivery %}
+<div class="card" style="width: 20rem; background-color:blue;color:white;">
+  <div class="card-body">
+     <h4 class="card-name">Type: {{i.types1}}</h4>
+           <h4 class="card-name">Product_name: {{i.item_name}}</h4>
+      <h4 class="card-name">Item Price: {{i.rate}} Rs Only</h4>
+            <h4 class="card-name">Quantity: {{i.quantity}}</h4>
+
+      <h4 class="card-name">Total Amount: {{i.total}}</h4>
+
+    <p class="card-text">{{ i.description }}</p>
+      <h4 class="card-name">Status:Delivered</h4>
+  </div>
+</div>
+        {%endfor%}
+{% for i in pending %}
+<div class="card" style="width: 20rem; background-color:red;color:white;">
+
+  <div class="card-body">
+     <h4 class="card-name">Type: {{i.types1}}</h4>
+           <h4 class="card-name">Product_name: {{i.item_name}}</h4>
+      <h4 class="card-name">Item Price: {{i.rate}} Rs Only</h4>
+            <h4 class="card-name">Quantity: {{i.quantity}}</h4>
+
+      <h4 class="card-name">Total Amount: {{i.total}}</h4>
+
+    <p class="card-text">{{ i.description }}</p>
+            <h4 class="card-name">Status:Pending</h4>
+
+  </div>
+</div>
+        {%endfor%}
+        </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,138 @@
+{%load static%}
+<!doctype html>
+<html lang="en">
+  <head>
+      <style>
+.footer {
+  position: relative;
+  margin-top: -150px; /* negative value of footer height */
+  height: 150px;
+  clear:both;
+  padding-top:20px;
+}
+          .bg{
+              background-color: blueviolet!important;
+
+          }
+          #searchbox{
+          background-color:blue;
+
+          }
+          #message{
+          position:absolute;
+          top:20px;
+          left:500px;
+          color:red;
+          }
+          #cart{
+          height:30px;
+          right:10px;
+          top:60px;
+          position:absolute;
+          background-color:
+
+          }
+          #logo{
+          height:60px;
+          left:10px;
+          top:60px;
+          position:absolute;
+
+  border-radius: 50%;
+  background-color:blue;
+
+          }
+          #search{
+          right:10px;
+          top:15px;
+          position:absolute;
+          background-color:
+
+          }
+
+      </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+<img id="cart" src="/media/pics/cart.png" alt="cart">
+<img id="logo" class="nav-link" src="/media/pics/M.jpg" alt="logo">
+
+  {% include 'novbar.html' %}
+
+
+  <center><h1>Market </h1></center>
+<div id="search">
+  <form class="form-inline my-2 my-lg-0" action="/show" method="post">
+      {%csrf_token%}
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="item_name" name="item_name">
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+</div>
+
+  <br>
+  <br>
+<div class="row-md-4">
+
+    <div class="col-md-6">
+        <!-- categeries-->
+
+        <div class="list-group mt-5">
+
+</div>
+  </div>
+<div class="container my-container">
+<div class="col-md-10">
+    <div class="card-columns">
+        <div class="row-md-8">
+                  <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+
+
+{% for i in form %}
+
+<div  class="card" style="width: 15rem;">
+
+
+
+  <img class='card-img-top' src="/media/{{i.image}}" alt="{{ i.name1 }}">
+  <div class="card-body">
+     <h7 class="card-name">type: <b>{{i.product_type}}</b></h7><br>
+           <h7 class="card-name">Product_name: <b>{{i.item_name}}</b></h7><br>
+
+      <h7 class="card-name"> <b> ₹ {{i.rate}}  </b></h7><br>
+    <p class="card-text"><b>{{ i.description }}</b></p><br>
+    <a class="btn btn-primary" href="/order/{{i.id}}" >order</a>
+  </div>
+
+    </div>
+
+          {% endfor %}
+
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+</div>
+<script>
+    var quantity;
+    quantity=document.getElementById('quantity1').value;
+    docment.getElemntById('quantity2').innerHTML='Your number Items'+quantity
+
+</script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+  </body>
+</html>
